@@ -37,8 +37,6 @@ Here the solution aims at detecting the various objects of the substation for mo
         <td>Surge Arrestor</td>
         <td>Transformer</td>
         <td>Transformer with Surge Arrestor</td>
-        <td></td>
-        <td></td>
     </tr>
     <tr>
         <td>1</td>
