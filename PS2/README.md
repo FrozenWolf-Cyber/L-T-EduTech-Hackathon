@@ -157,7 +157,7 @@ Here the solution aims at detecting the various objects of the substation for mo
         <td><b>18</b></td>
         <td><b>18</b></td>
         <td><b>18</b></td>
-        <td><b>0.888888888888888<</b>/td>
+        <td><b>0.888888888888888</b></td>
         <td><b>343.3</b></td>
     </tr>
     <tr>
@@ -282,22 +282,30 @@ Here the solution aims at detecting the various objects of the substation for mo
     </tr>
 </table>
 
-Among multiple models ```vit_tiny_patch16_224``` stood out in performance while being relatively very small with just **24.64**
+Among multiple models ```vit_base_patch8_224``` stood out in performance with a kappa score of **0.8888888888888888**
 
 ## Best model performance:
-Model name: ```vit_tiny_patch16_224```
+Model name: ```vit_base_patch8_224```
 #### Test Performance: 
 ```LOSS : 0.22057782664861797  ACCURACY : 92.85714285714286
 TEST PREC: [0.88888889 0.94444444 0.94444444] RECALL: [0.88888889 0.94444444 0.94444444] F1 SCORE: [0.88888889 0.94444444 0.94444444] SUPPORT: [18 18 18]
 KAPPA:  0.8888888888888888
 ```
-![ps1_train_loss](https://user-images.githubusercontent.com/57902078/212643768-df338cdf-c168-4927-9c8d-36b6b49107c2.png)
-![ps1_acc](https://user-images.githubusercontent.com/57902078/212643921-f3e223c9-f9fa-4d46-be00-e8ca7e10474c.png)
-![ps1_f1](https://user-images.githubusercontent.com/57902078/212644035-16846980-b647-418d-a7db-7e0dfb157f86.png)
-![ps1_prec](https://user-images.githubusercontent.com/57902078/212644438-2caa44ec-81ee-4fbd-9817-9575dde06b3e.png)
-![ps1_recall](https://user-images.githubusercontent.com/57902078/212644453-551bba79-80bb-4542-8235-4de5c65c7851.png)
+![ps2_kappa](https://user-images.githubusercontent.com/57902078/212657993-f84b8dc0-05cb-426c-a03d-0a0f92fed4ef.png)
+![ps2_f1](https://user-images.githubusercontent.com/57902078/212657986-9f950fd7-19f2-491f-a33d-8f51e74e2502.png)
+![ps2_loss](https://user-images.githubusercontent.com/57902078/212657995-921dcbab-6716-4714-b3af-921894ea2422.png)
+![ps2_prec](https://user-images.githubusercontent.com/57902078/212657998-7172783f-a69e-41b4-8111-86be74f30bf9.png)
+![ps2_recall](https://user-images.githubusercontent.com/57902078/212658003-4774b7f1-a037-4a13-981f-b295c3fdd9dc.png)
+![ps2_acc](https://user-images.githubusercontent.com/57902078/212657955-0d8ceebc-50df-4912-87e7-b9a09c748003.png)
+
 
 ## Experimentation & Observation:
 
-We started exploring the dataset and started fine-tuning the given dataset on the standard pre-trained model such as Resnet, VGG16, Efficientnet-B7, and Vision Transformers (ViT). After multiple runs, we found that ViT models outperformed all other models with/without augmentation and performed exceptionally well using the SGD optimizer in particular. Image augmentation, such as random rotation and flips, did not help in improving the model performance, and the model was able to generalize well without overfitting without any image augmentation.
+Main problem in the task that we came across is that the dataset was very insuffiecient. So we started  fine-tuning the given dataset on the standard pre-trained model such as Resnet, VGG16, Efficientnet-B7, and Vision Transformers (ViT). Due to very less data samples for each class we tried different augmentations but it didn't help in improving the models accuracy any further. After multiple runs, we found that ViT models outperformed all other models with/without augmentation and performed exceptionally well using the SGD optimizer in particular. Image augmentation, such as random rotation and flips, did not help in improving the model performance, and the model was able to generalize well without overfitting without any image augmentation.
 All the models were trained using Kaggle GPU and partially locally.
+
+## Other Approaches - Few Shot Learning:
+
+We tried to use ![Matching Networks](https://arxiv.org/abs/1606.04080) to solve the issue of very less data samples. We started by using fintuned tiny ViT model as our feature extractor and minimized Tripple Loss on Euclidean Distance of the embedding feature vectors of each images with respect to each other. Then we trained a linear layer on top of this feature extracor by freezing it. But the results were bad even after applying different augmentations. One possible explanation is that the classess has overlapping image features and Tripple Loss on Euclidean Distances could have reduced generalization of the model.
+
+
