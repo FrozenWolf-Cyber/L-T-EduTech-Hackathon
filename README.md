@@ -5,6 +5,8 @@ Solutions of L&amp;T EduTech Hackathon by our team  - Bharatfly_Coders
 
 Throughout all task general observation is that the Vision transformers (ViT) performed very well compared to classical models such as Resnet, VGG16, EfficientNet-Bx.
 
+https://drive.google.com/file/d/1VYsAKcM1DK613JGXaUBbw3NfFrW6ZXLg/view?usp=drivesdk
+
 ## Results:
 
 ## ![PS1](https://github.com/FrozenWolf-Cyber/L-T-EduTech-Hackathon/tree/main/PS1#readme):
