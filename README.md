@@ -7,9 +7,6 @@ Throughout all task general observation is that the Vision transformers (ViT) pe
 
 https://drive.google.com/file/d/1VYsAKcM1DK613JGXaUBbw3NfFrW6ZXLg/view?usp=drivesdk
 
-https://www.canva.com/design/DAFY7ewXb-s/uhhCwuxgKm9mK2PxNLM5wA/edit?utm_content=DAFY7ewXb-s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-
 ## Results:
 
 ## ![PS1](https://github.com/FrozenWolf-Cyber/L-T-EduTech-Hackathon/tree/main/PS1#readme):
